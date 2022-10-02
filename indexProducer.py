@@ -29,10 +29,11 @@ def insertScript(data, scriptFileName, insertScriptsPosition):
 
 def getFormatted(data):
     modifiedData = data
-    insertScriptsPosition = modifiedData.find('</body>')
     insertSheetsPosition = modifiedData.find('</head>')
     modifiedData = insertStyleSheet(modifiedData, 'index.css', insertSheetsPosition)
+    insertScriptsPosition = modifiedData.find('</body>')
     modifiedData = insertScript(modifiedData, 'index.js', insertScriptsPosition)
+    insertScriptsPosition = modifiedData.find('</body>')
     modifiedData = insertScript(modifiedData, 'differences.js', insertScriptsPosition)
     return modifiedData
 
