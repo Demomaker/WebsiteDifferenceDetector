@@ -32,9 +32,9 @@ def getFormatted(data):
     insertSheetsPosition = modifiedData.find('</head>')
     modifiedData = insertStyleSheet(modifiedData, 'index.css', insertSheetsPosition)
     insertScriptsPosition = modifiedData.find('</body>')
-    modifiedData = insertScript(modifiedData, 'index.js', insertScriptsPosition)
-    insertScriptsPosition = modifiedData.find('</body>')
     modifiedData = insertScript(modifiedData, 'differences.js', insertScriptsPosition)
+    insertScriptsPosition = modifiedData.find('</body>')
+    modifiedData = insertScript(modifiedData, 'index.js', insertScriptsPosition)
     return modifiedData
 
 # Create website index
