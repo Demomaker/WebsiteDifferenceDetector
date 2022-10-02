@@ -14,7 +14,7 @@ url = 'https://github.com/Demomaker/WebsiteDifferenceDetector'
 response = urllib.request.urlopen(url)
 dumpContent = response.read().decode('UTF-8')
 dumpFileName = 'websiteDump.html'
-writeDataToFile(dumpFileName, webContent)
+writeDataToFile(dumpFileName, dumpContent)
 
 # Functions used with index
 def createIndex(indexData) :
