@@ -5,7 +5,7 @@ def getDataFromFile(url) :
     return data
 
 def writeDataToFile(url, data) :
-    with open(outputFile, 'w', encoding="utf8") as file:
+    with open(url, 'w', encoding="utf8") as file:
         file.write(data)
 
 # Create website dump

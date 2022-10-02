@@ -4,12 +4,12 @@ def getDataFromFile(url) :
     return data
 
 def writeDataToFile(url, data) :
-    with open(outputFile, 'w', encoding="utf8") as file:
+    with open(url, 'w', encoding="utf8") as file:
         file.write(data)
 
 def putIntoJavascriptFile(url, data) :
     dataInJavascriptVariable = "const differences = `" + data + "`"
-    writeDataToFile(dataInJavascriptVariable)
+    writeDataToFile(url, dataInJavascriptVariable)
 
 data = getDataFromFile('difflog.txt')
 putIntoJavascriptFile('differences.js', data)
