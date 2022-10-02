@@ -21,11 +21,11 @@ def createIndex(indexData) :
     writeDataToFile('index.html', indexData)
 
 def insertStyleSheet(data, styleSheetFileName, insertSheetsPosition):
-    return data[insertSheetsPosition:] + '\n<link rel="stylesheet" href="' + styleSheetFileName + '">' + data[:insertSheetsPosition] 
+    return data[:insertSheetsPosition] + '\n<link rel="stylesheet" href="' + styleSheetFileName + '">' + data[insertSheetsPosition:] 
 
 
 def insertScript(data, scriptFileName, insertScriptsPosition):
-    return data[insertScriptsPosition:] + '\n<script src="' + scriptFileName + '"></script>' + data[:insertScriptsPosition] 
+    return data[:insertScriptsPosition] + '\n<script src="' + scriptFileName + '"></script>' + data[insertScriptsPosition:] 
 
 def getFormatted(data):
     modifiedData = data
