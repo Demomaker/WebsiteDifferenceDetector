@@ -21,7 +21,7 @@ def createIndex(indexData) :
     writeDataToFile('index.html', indexData)
 
 def insertStyleSheet(data, styleSheetFileName, insertSheetsPosition):
-    return data[insertSheetsPosition:] + '\n<link rel="stylesheet" href="' + scriptFileName + '">' + data[:insertSheetsPosition] 
+    return data[insertSheetsPosition:] + '\n<link rel="stylesheet" href="' + styleSheetFileName + '">' + data[:insertSheetsPosition] 
 
 
 def insertScript(data, scriptFileName, insertScriptsPosition):
