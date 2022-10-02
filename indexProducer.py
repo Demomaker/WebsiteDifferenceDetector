@@ -20,19 +20,21 @@ writeDataToFile(dumpFileName, dumpContent)
 def createIndex(indexData) :
     writeDataToFile('index.html', indexData)
 
-def insertStyleSheet(styleSheetFileName, insertSheetsPosition):
-    data = data[insertSheetsPosition:] + '\n<link rel="stylesheet" href="' + scriptFileName + '">' + data[:insertSheetsPosition] 
+def insertStyleSheet(data, styleSheetFileName, insertSheetsPosition):
+    return data[insertSheetsPosition:] + '\n<link rel="stylesheet" href="' + scriptFileName + '">' + data[:insertSheetsPosition] 
 
 
-def insertScript(scriptFileName, insertScriptsPosition):
-    data = data[insertScriptsPosition:] + '\n<script src="' + scriptFileName + '"></script>' + data[:insertScriptsPosition] 
+def insertScript(data, scriptFileName, insertScriptsPosition):
+    return data[insertScriptsPosition:] + '\n<script src="' + scriptFileName + '"></script>' + data[:insertScriptsPosition] 
 
 def getFormatted(data):
-    insertScriptsPosition = data.find('</body>')
-    insertSheetsPosition = data.find('</head>')
-    insertStyleSheet('index.css', insertSheetsPosition)
-    insertScript('index.js', insertScriptsPosition)
-    insertScript('differences.js', insertScriptsPosition)
+    modifiedData = data
+    insertScriptsPosition = modifiedData.find('</body>')
+    insertSheetsPosition = modifiedData.find('</head>')
+    modifiedData = insertStyleSheet(modifiedData, 'index.css', insertSheetsPosition)
+    modifiedData = insertScript(modifiedData, 'index.js', insertScriptsPosition)
+    modifiedData = insertScript(modifiedData, 'differences.js', insertScriptsPosition)
+    return modifiedData
 
 # Create website index
 dump = getDataFromFile(dumpFileName)
